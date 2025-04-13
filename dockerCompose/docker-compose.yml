@@ -12,7 +12,7 @@ services:
       - mongodb
     environment:
       - MONGO_URI=mongodb://my-mongodb-container:27017/insurance  # Updated MongoDB URI
-      - URL_UI=http://localhost:5173 
+      - URL_UI=http://localhost:5173
     networks:
       - my-network
 
@@ -20,11 +20,11 @@ services:
   frontend:
     build:
       context: ./ui-insurance
+      args:
+        - VITE_API_BASE_URL=http://localhost:8080
     container_name: ui
     ports:
       - "5173:80"  # Adjust to the correct frontend port
-    environment:
-      - VITE_API_BASE_URL=http://localhost:8080
     depends_on:
       - backend  # Ensure backend is ready before starting the frontend
     networks:

@@ -1,6 +1,12 @@
 # Use Maven for build stage
 FROM maven:3.9.9-amazoncorretto-17 AS build
 
+ARG MONGO_URI
+ENV MONGO_URI=$MONGO_URI
+
+ARG URL_UI
+ENV URL_UI=$URL_UI
+
 WORKDIR /app
 
 # Copy pom.xml and download dependencies first for Docker cache efficiency
