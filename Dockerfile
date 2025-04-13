@@ -7,13 +7,14 @@ WORKDIR /app
 COPY pom.xml .
 COPY .mvn .mvn
 COPY mvnw .
+RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline
 
 # Copy the rest of the source code
 COPY src ./src
 
 # Build the app
-RUN ./mvnw clean test package -DskipTests
+RUN ./mvnw clean package -DskipTests
 
 # ---- Second stage: Use Amazon Corretto for final image
 FROM amazoncorretto:17-alpine3.20

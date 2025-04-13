@@ -4,6 +4,7 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_URI}
+  base_url_ui: ${URL_UI}
 
 management:
   endpoints:
