@@ -22,20 +22,24 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.net.URL;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+    private String baseUrlUi;
+
     private ObjectMapper objectMapper;
 
     private UserSessionService userSessionService;
 
-    public CustomAuthenticationFilter(AuthenticationManager authenticationManager, UserSessionService userSessionService, ObjectMapper objectMapper) {
+    public CustomAuthenticationFilter(AuthenticationManager authenticationManager, UserSessionService userSessionService, ObjectMapper objectMapper, String baseUrlUi) {
         super(authenticationManager);
         this.userSessionService = userSessionService;
         this.objectMapper = objectMapper;
+        this.baseUrlUi = baseUrlUi;
     }
 
     @Override
@@ -70,13 +74,15 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             String refreshToken = tokenResult.getRefreshToken();
             int maxAge = 2592000; // 30 days in seconds
 
+            URL url = new URL(baseUrlUi);
+
             // Set the cookie
             Cookie cookie = new Cookie("refreshToken", refreshToken);
             cookie.setHttpOnly(true);
             cookie.setSecure(true); // Set to true if using HTTPS
             cookie.setMaxAge(maxAge);
             cookie.setPath("/"); // Cookie will be available for all paths
-            cookie.setDomain("localhost"); // Set the domain, can be your server's domain
+            cookie.setDomain(url.getHost()); // Set the domain, can be your server's domain
 
             // Add the cookie to the response
             response.addCookie(cookie);
