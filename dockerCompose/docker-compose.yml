@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./service-insurance 
+    container_name: service
+    ports:
+      - "8080:8080" 
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://my-mongodb-container:27017/insurance  # Updated MongoDB URI
+    networks:
+      - my-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./ui-insurance
+    container_name: ui
+    ports:
+      - "5173:80"  # Adjust to the correct frontend port
+    depends_on:
+      - backend  # Ensure backend is ready before starting the frontend
+    networks:
+      - my-network
+
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest  # Using the official MongoDB image
+    container_name: my-mongodb-container  # Updated container name
+    ports:
+      - "27017:27017"  # Expose MongoDB port
+    volumes:
+      - mongodb-insurance-data:/data/db  # Persistent storage for MongoDB
+    environment:
+      - MONGO_INITDB_DATABASE=insurance  # Initialize DB with 'insurance'
+    networks:
+      - my-network
+
+volumes:
+  mongodb-insurance-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge

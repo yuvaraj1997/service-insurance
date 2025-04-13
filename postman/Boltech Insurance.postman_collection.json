@@ -1,0 +1,3053 @@
+{
+	"info": {
+		"_postman_id": "a15bad4f-35b1-4977-9d4a-947656cb342e",
+		"name": "Boltech Insurance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9920493"
+	},
+	"item": [
+		{
+			"name": "1. Auth",
+			"item": [
+				{
+					"name": "1.0 Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"Abc@1234\",\r\n    \"firstName\": \"User\",\r\n    \"lastName\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "### Auth Signup\n\nThis endpoint is used to register a new user.\n\n#### Request Body\n\n- email (string, required): The email of the user.\n    \n- password (string, required): The password for the user account.\n    \n- firstName (string, required): The first name of the user.\n    \n- lastName (string, required): The last name of the user.\n    \n\n#### Response\n\nThe response for this request will be 201"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"Abc@1234\",\r\n    \"firstName\": \"User\",\r\n    \"lastName\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 13:50:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "User Already Exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"Abc@1234\",\r\n    \"firstName\": \"User\",\r\n    \"lastName\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 11:55:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"code\": \"USR_002\",\n    \"message\": \"User already exists\",\n    \"timestamp\": \"2025-04-11T11:55:48.482383600\",\n    \"path\": \"/auth/signup\"\n}"
+						}
+					]
+				},
+				{
+					"name": "1.1 Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"Abc@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "### Auth Login\n\nThis endpoint is used to authenticate a user by providing their email and password.\n\n#### Request Body\n\n- email (string, required): The email of the user.\n    \n- password (string, required): The password of the user.\n    \n\nExample:\n\n``` json\n{\n  \"email\": \"user@example.com\",\n  \"password\": \"Abc@1234\"\n}\n\n ```\n\n#### Response\n\n- Will set the cookie in the response (refreshToken)"
+					},
+					"response": [
+						{
+							"name": "Invalid Credential",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user@example.cm\",\r\n    \"password\": \"Abc@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 13:25:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"code\": \"AUTH_001\",\n    \"message\": \"Invalid username or password\",\n    \"timestamp\": \"2025-04-11T13:25:03.711144800Z\",\n    \"path\": \"/auth/login\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"Abc@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJ0eXAiOiJSRUZSRVNIX1RPS0VOIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJpbnN1cmFuY2UiLCJpYXQiOjE3NDQ1MTg0ODcsImV4cCI6MTc0NDUyMjA4Nywic3ViIjoiNjdmOTFlZTU3Y2UzMGQyNTU4OTRjZWI5IiwianRpIjoiZjI5YjU2ZjEtOTI3Yi00YTZiLWI1MjItOTU0MmZkNDhhOGViIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.nBdXSPChmTlvnQYhH46_treisQyXjAYJfCVLD0zlNYrC3pbSDYLh2IjjZtYBTvBMsb305z4busrBBx4d5h_yZwAgfZ2dvybJ77-lsTO3fh5zJ2x-jip4i1b7yk0lHlBVyPqUq69u1Tr8QJcD1bjmq5E5EoSSM942JonQz7mxZJR-5XrCCIC6Zhepgjh7fVOglE5TKJmfUX8iEg6suyAop0-TfNwmx5upuSfCEfdsHJtsyThbtqm0S1MMJDEYMtOA8g4aC8_vWwaKvTQr5ApCO_YoAlKDjV7zng-sZe9vR_invQPXDIfeoLs-iVdw7Y738hP4IGtNp-QlZkpkaLUiZg; Max-Age=2592000; Expires=Tue, 13 May 2025 04:28:07 GMT; Domain=localhost; Path=/; Secure; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:28:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "1.2 Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"pm.environment.set(\"accessToken\", jsonData.accessToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/auth/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"token"
+							]
+						},
+						"description": "### Auth Token Request\n\nThis endpoint retrieves an authentication token.\n\n**Request Body**  \nThis request does not require a request body. Need to pass cookie `refreshToken`\n\n**Response**  \nThe response will be a JSON object with the following properties:\n\n- `accessToken` (string): The access token for authentication.\n    \n- `expiresInSeconds` (number): The duration in seconds for which the token is valid.\n    \n- `expiration` (string): The date and time of token expiration.\n    \n- `issuedAt` (string): The date and time at which the token was issued.\n    \n\n#### JSON Schema\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"accessToken\": {\n            \"type\": \"string\"\n        },\n        \"expiresInSeconds\": {\n            \"type\": \"number\"\n        },\n        \"expiration\": {\n            \"type\": \"string\"\n        },\n        \"issuedAt\": {\n            \"type\": \"string\"\n        }\n    }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/auth/token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:29:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJ0eXAiOiJBQ0NFU1NfVE9LRU4iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJpbnN1cmFuY2UiLCJpYXQiOjE3NDQ1MTg1NTYsImV4cCI6MTc0NDUyMDM1Niwic3ViIjoiNjdmOTFlZTU3Y2UzMGQyNTU4OTRjZWI5IiwianRpIjoiZjI5YjU2ZjEtOTI3Yi00YTZiLWI1MjItOTU0MmZkNDhhOGViIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.DDYxDMgrUMGZ3hbTB_k1RnJMA-EjBG2kcCnSc3onma3xko9p3X3Lb7JsnZZcp6LA5PGe1aH1DK4ybIMqR9NYUcbm9m7Nj3qUK80wxtAWhPAt7UToF_XAMqAlupjeIqTg-juzcmwo5r6YfmiftCFkP6v8v4igY7CdtQ43l1sskoEW9bQd0hoq0-udOWNdd2NEFH4qBmAzGv2WUFIWn5mim2BrRhcEHuC25KTeqJy2cEY9PM8d4EZItHKVdbfXI3XkDJLICC0IKi_ZKRO8oiLxQ_euEK_1oV2QUYoH7BL9dEK2U8x9lkEssuY81hs65_LEa7l48vqbn2M0eqE04k3ULg\",\n    \"expiresInSeconds\": 1800,\n    \"expiration\": \"2025-04-13T04:59:16.850511900Z\",\n    \"issuedAt\": \"2025-04-13T04:29:16.850511900Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "1.3 Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/auth/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "## Auth Logout\n\nThis endpoint is used to log out the user from the application.\n\n### Request Body\n\nThis request does not require a request body. Just need to pass all cookie `refreshToken`\n\n### Response\n\nThe response for this request is a 204 status code"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/auth/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=; Path=/; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; HttpOnly; SameSite=Lax"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:37:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2. User",
+			"item": [
+				{
+					"name": "2.1 Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						},
+						"description": "## GET /users/profile\n\nThis endpoint retrieves the profile information of a user.\n\n### Request\n\nNo request body is required for this endpoint. Need Token\n\n### Response\n\nThe response will be a JSON object with the following properties:\n\n- `id` (string): The unique identifier of the user.\n    \n- `email` (string): The email address of the user.\n    \n- `firstName` (string): The first name of the user.\n    \n- `lastName` (string): The last name of the user.\n    \n- `status` (string): The status of the user.\n    \n- `roles` (array of strings): The roles assigned to the user.\n    \n- `createdAt` (string): The date and time when the user profile was created.\n    \n- `updatedAt` (string): The date and time when the user profile was last updated.\n    \n\n#### Example\n\n``` json\n{\n    \"id\": \"\",\n    \"email\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"status\": \"\",\n    \"roles\": [\"\"],\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\"\n}\n\n ```\n\nThe response of this request can be documented as a JSON schema."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 14:14:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"67f91ee57ce30d255894ceb9\",\n    \"email\": \"user@example.com\",\n    \"firstName\": \"User\",\n    \"lastName\": \"1\",\n    \"status\": \"ACTIVE\",\n    \"roles\": [\n        \"USER\"\n    ],\n    \"createdAt\": \"2025-04-11T13:53:41.553Z\",\n    \"updatedAt\": \"2025-04-11T13:53:41.553Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "2.2 Get All Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/policies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"policies"
+							]
+						},
+						"description": "This endpoint retrieves a list of policies for users. The request should be sent via an HTTP GET method to {{baseUrl}}/users/policies.\n\n### Request\n\nNo request body is required for this endpoint.\n\n### Response\n\nUpon a successful execution, the endpoint returns a JSON object with a key \"policies\" containing an array of policy objects. Each policy object includes the following attributes:\n\n- userPolicyId (string): The ID of the user's policy.\n    \n- name (string): The name of the policy.\n    \n- type (string): The type of the policy.\n    \n- status (string): The status of the policy.\n    \n- coverageAmount (number): The coverage amount of the policy.\n    \n\nExample response:\n\n``` json\n{\n    \"policies\": [\n        {\n            \"userPolicyId\": \"\",\n            \"name\": \"\",\n            \"type\": \"\",\n            \"status\": \"\",\n            \"coverageAmount\": 0\n        }\n    ]\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/policies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"policies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:29:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"policies\": [\n        {\n            \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n            \"name\": \"Home Policy\",\n            \"type\": \"HOME\",\n            \"status\": \"ACTIVE\",\n            \"coverageAmount\": 500000\n        },\n        {\n            \"userPolicyId\": \"67faa7087a998857b20cae90\",\n            \"name\": \"Auto Policy\",\n            \"type\": \"AUTO\",\n            \"status\": \"ACTIVE\",\n            \"coverageAmount\": 50000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "2.3 Get Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/policies/67fa1541cdcfd9117b9a8bdb",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"policies",
+								"67fa1541cdcfd9117b9a8bdb"
+							]
+						},
+						"description": "This endpoint retrieves the policy details for a specific user and userPolicyId. The response for this request can be documented as a JSON schema as follows:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"policy\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"name\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"userPolicy\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"userPolicyId\": {\n          \"type\": \"string\"\n        },\n        \"status\": {\n          \"type\": \"string\"\n        },\n        \"coverageAmount\": {\n          \"type\": \"number\"\n        },\n        \"monthlyPremiumAmount\": {\n          \"type\": \"number\"\n        },\n        \"paymentMode\": {\n          \"type\": \"string\"\n        },\n        \"paymentDueDate\": {\n          \"type\": \"string\"\n        },\n        \"termInMonths\": {\n          \"type\": \"integer\"\n        },\n        \"startDate\": {\n          \"type\": \"string\"\n        },\n        \"endDate\": {\n          \"type\": \"string\"\n        },\n        \"termRemainingInMonths\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/policies/67fa1541cdcfd9117b9a8bdb",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"policies",
+										"67fa1541cdcfd9117b9a8bdb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 16:06:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"policy\": {\n        \"name\": \"Home Policy\",\n        \"type\": \"HOME\"\n    },\n    \"userPolicy\": {\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"status\": \"ACTIVE\",\n        \"coverageAmount\": 500000,\n        \"monthlyPremiumAmount\": 620,\n        \"paymentMode\": \"Monthly(M)\",\n        \"paymentDueDate\": \"2025-05-12T00:00:00Z\",\n        \"termInMonths\": 12,\n        \"startDate\": \"2025-04-12T07:24:49.443Z\",\n        \"endDate\": \"2026-05-12T07:24:49.443Z\",\n        \"termRemainingInMonths\": 10\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "2.4 Get Payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/policies/67fa1541cdcfd9117b9a8bdb/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"policies",
+								"67fa1541cdcfd9117b9a8bdb",
+								"payments"
+							]
+						},
+						"description": "### GET /users/policies/67fa1541cdcfd9117b9a8bdb/payments\n\nThis endpoint retrieves the payments associated with a specific user policy.\n\n#### Request\n\nNo request body parameters are required for this endpoint.\n\n#### Response\n\nThe response will be a JSON array containing payment objects with the following properties:\n\n- `id` (string): The unique identifier for the payment.\n    \n- `userId` (string): The ID of the user associated with the payment.\n    \n- `userPolicyId` (string): The ID of the user's policy linked to the payment.\n    \n- `amount` (number): The amount of the payment.\n    \n- `status` (string): The status of the payment.\n    \n- `paymentDate` (string): The date of the payment.\n    \n- `billingSchedule` (string): The billing schedule for the payment.\n    \n- `month` (number): The month of the payment.\n    \n- `createdAt` (string): The date and time when the payment was created.\n    \n- `updatedAt` (string): The date and time when the payment was last updated.\n    \n\nExample response:\n\n``` json\n[\n    {\n        \"id\": \"\",\n        \"userId\": \"\",\n        \"userPolicyId\": \"\",\n        \"amount\": 0,\n        \"status\": \"\",\n        \"paymentDate\": \"\",\n        \"billingSchedule\": null,\n        \"month\": 0,\n        \"createdAt\": \"\",\n        \"updatedAt\": \"\"\n    }\n]\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/policies/67fa1541cdcfd9117b9a8bdb/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"policies",
+										"67fa1541cdcfd9117b9a8bdb",
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:30:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8bdc\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"COMPLETED\",\n        \"paymentDate\": \"2025-04-12T07:24:49.478Z\",\n        \"billingSchedule\": null,\n        \"month\": 1,\n        \"createdAt\": \"2025-04-12T07:24:49.482Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.482Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8bdd\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-05-12T00:00:00Z\",\n        \"month\": 2,\n        \"createdAt\": \"2025-04-12T07:24:49.500Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.500Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8bde\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-06-12T00:00:00Z\",\n        \"month\": 3,\n        \"createdAt\": \"2025-04-12T07:24:49.503Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.503Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8bdf\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-07-12T00:00:00Z\",\n        \"month\": 4,\n        \"createdAt\": \"2025-04-12T07:24:49.506Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.506Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be0\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-08-12T00:00:00Z\",\n        \"month\": 5,\n        \"createdAt\": \"2025-04-12T07:24:49.508Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.508Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be1\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-09-12T00:00:00Z\",\n        \"month\": 6,\n        \"createdAt\": \"2025-04-12T07:24:49.512Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.512Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be2\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-10-12T00:00:00Z\",\n        \"month\": 7,\n        \"createdAt\": \"2025-04-12T07:24:49.514Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.514Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be3\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-11-12T00:00:00Z\",\n        \"month\": 8,\n        \"createdAt\": \"2025-04-12T07:24:49.518Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.518Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be4\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2025-12-12T00:00:00Z\",\n        \"month\": 9,\n        \"createdAt\": \"2025-04-12T07:24:49.520Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.520Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be5\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2026-01-12T00:00:00Z\",\n        \"month\": 10,\n        \"createdAt\": \"2025-04-12T07:24:49.523Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.523Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be6\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2026-02-12T00:00:00Z\",\n        \"month\": 11,\n        \"createdAt\": \"2025-04-12T07:24:49.525Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.525Z\"\n    },\n    {\n        \"id\": \"67fa1541cdcfd9117b9a8be7\",\n        \"userId\": \"67f91ee57ce30d255894ceb9\",\n        \"userPolicyId\": \"67fa1541cdcfd9117b9a8bdb\",\n        \"amount\": 620,\n        \"status\": \"SCHEDULED\",\n        \"paymentDate\": null,\n        \"billingSchedule\": \"2026-03-12T00:00:00Z\",\n        \"month\": 12,\n        \"createdAt\": \"2025-04-12T07:24:49.527Z\",\n        \"updatedAt\": \"2025-04-12T07:24:49.527Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "3. Admin",
+			"item": [
+				{
+					"name": "3.1 Insurance Policy",
+					"item": [
+						{
+							"name": "3.1.1 Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Life Policy Max 1\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/insurance-policies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"insurance-policies"
+									]
+								},
+								"description": "### Create New Insurance Policy\n\nThis API endpoint allows administrators to create a new insurance policy.\n\n#### Request Body\n\n- `name` (string) - The name of the insurance policy.\n    \n- `insuranceType` (string) - The type of insurance (e.g. LIFE, AUTO,HOME, etc.).\n    \n- `coverageAmount` (number) - The coverage amount of the insurance policy.\n    \n- `premiumPerMonth` (number) - The premium amount to be paid per month.\n    \n- `termLengthInMonths` (number) - The length of the insurance policy term in months.\n    \n- `status` (string) - The status of the insurance policy (e.g. ACTIVE, INACTIVE, etc.).\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"id\": \"\",\n  \"name\": \"\",\n  \"insuranceType\": \"\",\n  \"coverageAmount\": 0,\n  \"premiumPerMonth\": 0,\n  \"termLengthInMonths\": 0,\n  \"status\": \"\",\n  \"createdAt\": \"\",\n  \"updatedAt\": \"\",\n  \"createdBy\": \"\"\n}\n\n ```\n\nThe `id` field will contain the unique identifier of the created insurance policy, while other fields will reflect the details of the policy as per the request.\n\n#### Example Response\n\n``` json\n{\n  \"id\": \"example_id\",\n  \"name\": \"Life Policy Max 1\",\n  \"insuranceType\": \"LIFE\",\n  \"coverageAmount\": 1000000,\n  \"premiumPerMonth\": 250,\n  \"termLengthInMonths\": 12,\n  \"status\": \"ACTIVE\",\n  \"createdAt\": \"timestamp\",\n  \"updatedAt\": \"timestamp\",\n  \"createdBy\": \"user_id\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Life Policy Max\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:04:54 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"67f92f96827a0d1f68b3bee3\",\n    \"name\": \"Life Policy Max\",\n    \"insuranceType\": \"LIFE\",\n    \"coverageAmount\": 1000000,\n    \"premiumPerMonth\": 250,\n    \"termLengthInMonths\": 12,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-04-11T15:04:54.160340200Z\",\n    \"updatedAt\": \"2025-04-11T15:04:54.160340200Z\",\n    \"createdBy\": \"67f91ee57ce30d255894ceb9\"\n}"
+								}
+							]
+						},
+						{
+							"name": "3.1.2 Find By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/insurance-policies/67fb4a07d6e320419fcb4140",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"insurance-policies",
+										"67fb4a07d6e320419fcb4140"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								},
+								"description": "This endpoint retrieves details of a specific insurance policy for admin purposes.\n\n### Request\n\nNo request body parameters are required for this GET request.\n\n### Response\n\nThe response will include the details of the insurance policy in a JSON format. The fields include:\n\n- `id`: The unique identifier of the insurance policy.\n    \n- `name`: The name of the insurance policy.\n    \n- `insuranceType`: The type of insurance.\n    \n- `coverageAmount`: The amount of coverage provided by the insurance policy.\n    \n- `premiumPerMonth`: The premium amount to be paid per month.\n    \n- `termLengthInMonths`: The length of the insurance policy term in months.\n    \n- `status`: The status of the insurance policy.\n    \n- `createdAt`: The timestamp of when the insurance policy was created.\n    \n- `updatedAt`: The timestamp of when the insurance policy was last updated.\n    \n- `createdBy`: The user who created the insurance policy.\n    \n\nExample Response:\n\n``` json\n{\n    \"id\": \"\",\n    \"name\": \"\",\n    \"insuranceType\": \"\",\n    \"coverageAmount\": 0,\n    \"premiumPerMonth\": 0,\n    \"termLengthInMonths\": 0,\n    \"status\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\",\n    \"createdBy\": \"\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies/67f92f96827a0d1f68b3bee3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies",
+												"67f92f96827a0d1f68b3bee3"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:25:10 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"67f92f96827a0d1f68b3bee3\",\n    \"name\": \"Life Policy Max\",\n    \"insuranceType\": \"LIFE\",\n    \"coverageAmount\": 1000000,\n    \"premiumPerMonth\": 250,\n    \"termLengthInMonths\": 12,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-04-11T15:04:54.160Z\",\n    \"updatedAt\": \"2025-04-11T15:04:54.160Z\",\n    \"createdBy\": \"67f91ee57ce30d255894ceb9\"\n}"
+								},
+								{
+									"name": "Invalid Policy Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies/67f92f96827a0d1f68b3bee3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies",
+												"67f92f96827a0d1f68b3bee3"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:31:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 400,\n    \"code\": \"PLY_001\",\n    \"message\": \"Policy not found\",\n    \"timestamp\": \"2025-04-11T15:31:04.614285100Z\",\n    \"path\": \"/admin/insurance-policies/67f92f96827a0d1f68b3bee3\"\n}"
+								}
+							]
+						},
+						{
+							"name": "3.1.3 Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"67fb4a07d6e320419fcb4140\",\r\n    \"name\": \"Life Policy Max 1\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/insurance-policies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"insurance-policies"
+									]
+								},
+								"description": "### Update Insurance Policy\n\nThis endpoint is used to update an insurance policy in the admin system.\n\n#### Request Body\n\n- `id` (string): The unique identifier of the insurance policy.\n    \n- `name` (string): The name of the insurance policy.\n    \n- `insuranceType` (string): The type of insurance policy.\n    \n- `coverageAmount` (number): The coverage amount provided by the insurance policy.\n    \n- `premiumPerMonth` (number): The monthly premium amount for the insurance policy.\n    \n- `termLengthInMonths` (number): The length of the insurance policy term in months.\n    \n- `status` (string): The status of the insurance policy.\n    \n\n#### Response\n\n- `id` (string): The unique identifier of the updated insurance policy.\n    \n- `name` (string): The name of the updated insurance policy.\n    \n- `insuranceType` (string): The type of the updated insurance policy.\n    \n- `coverageAmount` (number): The updated coverage amount provided by the insurance policy.\n    \n- `premiumPerMonth` (number): The updated monthly premium amount for the insurance policy.\n    \n- `termLengthInMonths` (number): The updated length of the insurance policy term in months.\n    \n- `status` (string): The updated status of the insurance policy.\n    \n- `createdAt` (string): The timestamp of when the policy was created.\n    \n- `updatedAt` (string): The timestamp of when the policy was last updated.\n    \n- `createdBy` (string): The user who created the policy.\n    \n\n#### Example Response\n\n``` json\n{\n  \"id\": \"updated_id\",\n  \"name\": \"Life Policy Max 1\",\n  \"insuranceType\": \"LIFE\",\n  \"coverageAmount\": 1000000,\n  \"premiumPerMonth\": 250,\n  \"termLengthInMonths\": 12,\n  \"status\": \"ACTIVE\",\n  \"createdAt\": \"timestamp\",\n  \"updatedAt\": \"timestamp\",\n  \"createdBy\": \"user_id\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"67f92f96827a0d1f68b3bee3\",\r\n    \"name\": \"Life Policy Max\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:26:39 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"67f92f96827a0d1f68b3bee3\",\n    \"name\": \"Life Policy Max\",\n    \"insuranceType\": \"LIFE\",\n    \"coverageAmount\": 1000000,\n    \"premiumPerMonth\": 250,\n    \"termLengthInMonths\": 12,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-04-11T15:04:54.160Z\",\n    \"updatedAt\": \"2025-04-11T15:26:39.740985600Z\",\n    \"createdBy\": \"67f91ee57ce30d255894ceb9\"\n}"
+								},
+								{
+									"name": "Invalid Policy Id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"67f92f96827a0d1f68b3bee3\",\r\n    \"name\": \"Life Policy Max\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:30:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 400,\n    \"code\": \"PLY_001\",\n    \"message\": \"Policy not found\",\n    \"timestamp\": \"2025-04-11T15:30:44.067202300Z\",\n    \"path\": \"/admin/insurance-policies\"\n}"
+								},
+								{
+									"name": "3.1.3 Update",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"67fb4a07d6e320419fcb4140\",\r\n    \"name\": \"Life Policy Max 1\",\r\n    \"insuranceType\": \"LIFE\",\r\n    \"coverageAmount\": 1000000,\r\n    \"premiumPerMonth\": 250,\r\n    \"termLengthInMonths\": 12,\r\n    \"status\": \"ACTIVE\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 13 Apr 2025 05:24:29 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"67fb4a07d6e320419fcb4140\",\n    \"name\": \"Life Policy Max 1\",\n    \"insuranceType\": \"LIFE\",\n    \"coverageAmount\": 1000000,\n    \"premiumPerMonth\": 250,\n    \"termLengthInMonths\": 12,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-04-13T05:22:15.765Z\",\n    \"updatedAt\": \"2025-04-13T05:24:29.499098100Z\",\n    \"createdBy\": \"67f91ee57ce30d255894ceb9\"\n}"
+								}
+							]
+						},
+						{
+							"name": "3.1.4 Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/insurance-policies/67fb4a07d6e320419fcb4140",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"insurance-policies",
+										"67fb4a07d6e320419fcb4140"
+									]
+								},
+								"description": "This endpoint is used to delete a specific insurance policy by its ID. The request should be sent as an HTTP DELETE to the specified URL.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response\n\n- Status: 204\n    \n- Content-Type: text/xml\n    \n- Body: null"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies/67f92f96827a0d1f68b3bee3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies",
+												"67f92f96827a0d1f68b3bee3"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:30:20 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Invalid Policy ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/insurance-policies/67f92f96827a0d1f68b3bee3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"insurance-policies",
+												"67f92f96827a0d1f68b3bee3"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 11 Apr 2025 15:30:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": 400,\n    \"code\": \"PLY_001\",\n    \"message\": \"Policy not found\",\n    \"timestamp\": \"2025-04-11T15:30:33.384858200Z\",\n    \"path\": \"/admin/insurance-policies/67f92f96827a0d1f68b3bee3\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "3.2 Dashboard",
+					"item": [
+						{
+							"name": "3.2.0 Policy Issued",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/dashboard/policies/issued",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"policies",
+										"issued"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								},
+								"description": "This endpoint retrieves details of a specific insurance policy for admin purposes.\n\n### Request\n\nNo request body parameters are required for this GET request.\n\n### Response\n\nThe response will include the details of the insurance policy in a JSON format. The fields include:\n\n- `id`: The unique identifier of the insurance policy.\n    \n- `name`: The name of the insurance policy.\n    \n- `insuranceType`: The type of insurance.\n    \n- `coverageAmount`: The amount of coverage provided by the insurance policy.\n    \n- `premiumPerMonth`: The premium amount to be paid per month.\n    \n- `termLengthInMonths`: The length of the insurance policy term in months.\n    \n- `status`: The status of the insurance policy.\n    \n- `createdAt`: The timestamp of when the insurance policy was created.\n    \n- `updatedAt`: The timestamp of when the insurance policy was last updated.\n    \n- `createdBy`: The user who created the insurance policy.\n    \n\nExample Response:\n\n``` json\n{\n    \"id\": \"\",\n    \"name\": \"\",\n    \"insuranceType\": \"\",\n    \"coverageAmount\": 0,\n    \"premiumPerMonth\": 0,\n    \"termLengthInMonths\": 0,\n    \"status\": \"\",\n    \"createdAt\": \"\",\n    \"updatedAt\": \"\",\n    \"createdBy\": \"\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/dashboard/policies/issued",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"dashboard",
+												"policies",
+												"issued"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 13 Apr 2025 10:08:40 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"date\": \"2025-04-12\",\n            \"policiesIssued\": 2\n        },\n        {\n            \"date\": \"2025-04-13\",\n            \"policiesIssued\": 11\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "4. Insurance Policy",
+			"item": [
+				{
+					"name": "4.1 Calculate Quote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"policyId\": \"67f943ac9ffa820b9a02d38c\",\r\n    \"identification\": \"1212121\",\r\n    \"home\": {\r\n        \"type\": \"Apartment\", // Landed/ Apartment\r\n        \"numberOfRooms\": 1 //More than 1 \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/insurance/calculate-quote",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"insurance",
+								"calculate-quote"
+							]
+						},
+						"description": "### Calculate Insurance Quote\n\nThis endpoint allows you to calculate the insurance quote based on the provided policy ID, identification, and home details.\n\n#### Request Body\n\n- `policyId` (string) - The unique ID of the policy.\n    \n- `identification` (string) - The identification number associated with the policy.\n    \n- `home` (object) - Details of the home.\n    \n    - `type` (string) - The type of home (e.g., Apartment, House, etc.).\n        \n    - `numberOfRooms` (number) - The number of rooms in the home.\n        \n- `auto`(object) - Details of the auto.\n    \n    - `type` (string) - The type of home (e.g., car, motor, etc.).\n        \n    - additionalDriver\n        \n        (boolean) - If additional driver is required.\n        \n    - `naturalDisaster` (boolean) - If natural Disaster is required.\n        \n- `life` (object) - Details of the life.\n    \n    - `age` (number) - Minimum 18\n        \n    - `healthStatus`\n        \n        (string) -type Excellent, Good, Poor\n        \n\n#### Response\n\nUpon a successful request, the server responds with a JSON object containing the calculated premium per month.\n\nExample:\n\n``` json\n{\n  \"premiumPerMonth\": 0\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Auto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943979ffa820b9a02d38b\",\r\n    \"identification\": \"1212121\",\r\n    \"auto\": {\r\n        \"type\": \"car\",\r\n        \"additionalDriver\": true,\r\n        \"naturalDisaster\": true\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 16:50:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"premiumPerMonth\": 210\n}"
+						},
+						{
+							"name": "Life",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943789ffa820b9a02d38a\",\r\n    \"identification\": \"1212121\",\r\n    \"life\": {\r\n        \"age\": 18, // More than 18\r\n        \"healthStatus\": \"Good\" //Excellent, Good, Poor\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 16:52:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"premiumPerMonth\": 300\n}"
+						},
+						{
+							"name": "Home",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943ac9ffa820b9a02d38c\",\r\n    \"identification\": \"1212121\",\r\n    \"home\": {\r\n        \"type\": \"Apartment\", // Landed/ Apartment\r\n        \"numberOfRooms\": 1 //More than 1 \r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Apr 2025 16:53:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"premiumPerMonth\": 620\n}"
+						}
+					]
+				},
+				{
+					"name": "4.2 Generate Quote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"policyId\": \"67f943789ffa820b9a02d38a\",\r\n    \"identification\": \"1212121\",\r\n    \"life\": {\r\n        \"age\": 18, // More than 18\r\n        \"healthStatus\": \"Good\" //Excellent, Good, Poor\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/insurance/generate-quote",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"insurance",
+								"generate-quote"
+							]
+						},
+						"description": "### Generate Insurance Quote\n\nThis endpoint allows you to generate an insurance quote based on the provided policy and user identification details.\n\n#### Request Body\n\n- `policyId` (string): The unique identifier for the policy.\n    \n- `identification` (string): The user's identification number.\n    \n- `home` (object) - Details of the home.\n    \n    - `type` (string) - The type of home (e.g., Apartment, House, etc.).\n        \n    - `numberOfRooms` (number) - The number of rooms in the home.\n        \n- `auto`(object) - Details of the auto.\n    \n    - `type` (string) - The type of home (e.g., car, motor, etc.).\n        \n    - additionalDriver\n        \n        (boolean) - If additional driver is required.\n        \n    - `naturalDisaster` (boolean) - If natural Disaster is required.\n        \n- `life` (object) - Details of the life.\n    \n    - `age` (number) - Minimum 18\n        \n    - `healthStatus`\n        \n        (string) -type Excellent, Good, Poor\n        \n\n#### Response\n\nThe response is in JSON format and includes the following fields:\n\n``` json\n{\n  \"userQuoteId\": \"\",\n  \"policy\": {\n    \"id\": \"\",\n    \"name\": \"\",\n    \"type\": \"\"\n  },\n  \"details\": {\n    \"age\": 0,\n    \"healthStatus\": \"\"\n  },\n  \"coverageAmount\": 0,\n  \"premiumPerMonth\": 0,\n  \"termLengthInMonths\": 0\n}\n\n ```\n\n#### Example Response\n\n``` json\n{\n  \"userQuoteId\": \"\",\n  \"policy\": {\n    \"id\": \"\",\n    \"name\": \"\",\n    \"type\": \"\"\n  },\n  \"details\": {\n    \"type\": \"\",\n    \"additionalDriver\": true,\n    \"naturalDisaster\": true\n  },\n  \"coverageAmount\": 0,\n  \"premiumPerMonth\": 0,\n  \"termLengthInMonths\": 0\n}\n\n ```\n\n#### JSON Schema for Response\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"userQuoteId\": { \"type\": \"string\" },\n    \"policy\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": { \"type\": \"string\" },\n        \"name\": { \"type\": \"string\" },\n        \"type\": { \"type\": \"string\" }\n      }\n    },\n    \"details\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"age\": { \"type\": \"number\" },\n        \"healthStatus\": { \"type\": \"string\" }\n      }\n    },\n    \"coverageAmount\": { \"type\": \"number\" },\n    \"premiumPerMonth\": { \"type\": \"number\" },\n    \"termLengthInMonths\": { \"type\": \"number\" }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943ac9ffa820b9a02d38c\",\r\n    \"identification\": \"1212121\",\r\n    \"auto\": {\r\n        \"type\": \"car\",\r\n        \"additionalDriver\": true,\r\n        \"naturalDisaster\": true\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:31:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"code\": \"SYS_002\",\n    \"message\": \"Invalid request\",\n    \"timestamp\": \"2025-04-13T04:31:57.576776300Z\",\n    \"path\": \"/insurance/generate-quote\"\n}"
+						},
+						{
+							"name": "Auto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943979ffa820b9a02d38b\",\r\n    \"identification\": \"1212121\",\r\n    \"auto\": {\r\n        \"type\": \"car\",\r\n        \"additionalDriver\": true,\r\n        \"naturalDisaster\": true\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:33:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userQuoteId\": \"67fb3eaad6e320419fcb4130\",\n    \"policy\": {\n        \"id\": \"67f943979ffa820b9a02d38b\",\n        \"name\": \"Auto Policy\",\n        \"type\": \"AUTO\"\n    },\n    \"details\": {\n        \"type\": \"car\",\n        \"additionalDriver\": true,\n        \"naturalDisaster\": true\n    },\n    \"coverageAmount\": 50000,\n    \"premiumPerMonth\": 210,\n    \"termLengthInMonths\": 12\n}"
+						},
+						{
+							"name": "Home",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943ac9ffa820b9a02d38c\",\r\n    \"identification\": \"1212121\",\r\n    \"home\": {\r\n        \"type\": \"Apartment\", // Landed/ Apartment\r\n        \"numberOfRooms\": 1 //More than 1 \r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:34:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userQuoteId\": \"67fb3ec2d6e320419fcb4131\",\n    \"policy\": {\n        \"id\": \"67f943ac9ffa820b9a02d38c\",\n        \"name\": \"Home Policy\",\n        \"type\": \"HOME\"\n    },\n    \"details\": {\n        \"type\": \"Apartment\",\n        \"numberOfRooms\": 1\n    },\n    \"coverageAmount\": 500000,\n    \"premiumPerMonth\": 620,\n    \"termLengthInMonths\": 12\n}"
+						},
+						{
+							"name": "Life",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"policyId\": \"67f943789ffa820b9a02d38a\",\r\n    \"identification\": \"1212121\",\r\n    \"life\": {\r\n        \"age\": 18, // More than 18\r\n        \"healthStatus\": \"Good\" //Excellent, Good, Poor\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/generate-quote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"generate-quote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:34:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userQuoteId\": \"67fb3edcd6e320419fcb4132\",\n    \"policy\": {\n        \"id\": \"67f943789ffa820b9a02d38a\",\n        \"name\": \"Life Policy Max\",\n        \"type\": \"LIFE\"\n    },\n    \"details\": {\n        \"age\": 18,\n        \"healthStatus\": \"Good\"\n    },\n    \"coverageAmount\": 1000000,\n    \"premiumPerMonth\": 300,\n    \"termLengthInMonths\": 12\n}"
+						}
+					]
+				},
+				{
+					"name": "4.3 Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userQuotePolicyId\": \"67fb4bc1d6e320419fcb4141\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/insurance/payment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"insurance",
+								"payment"
+							]
+						},
+						"description": "### POST /insurance/payment\n\nThis endpoint is used to make a payment for an insurance policy.\n\n#### Request\n\n- { \"userQuotePolicyId\": \"67fb4bc1d6e320419fcb4141\"}\n    \n\n#### Response\n\nThe response for this request can be described using the following JSON schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"userPolicyId\": {\n      \"type\": \"string\"\n    },\n    \"nextPaymentDue\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```\n\nThe response body includes the following fields:\n\n- `userPolicyId` (string): The user's policy ID.\n    \n- `nextPaymentDue` (string): The date for the next payment due."
+					},
+					"response": [
+						{
+							"name": "Already Generated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userQuotePolicyId\": \"67fa088ef5539165d6c36441\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/payment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"payment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 07:25:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"code\": \"USR_QUOTE_PLY_002\",\n    \"message\": \"User's quote policy generated\",\n    \"timestamp\": \"2025-04-12T07:25:28.098377500Z\",\n    \"path\": \"/insurance/payment\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userQuotePolicyId\": \"67fb3edcd6e320419fcb4132\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/payment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"payment"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:34:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userPolicyId\": \"67fb3eefd6e320419fcb4133\",\n    \"nextPaymentDue\": \"2025-05-13T00:00:00Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "4.4 Get all policies by type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/insurance/policies?type=AUTO",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"insurance",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "AUTO"
+								}
+							]
+						},
+						"description": "### Get Insurance Policies by Type\n\nThis endpoint retrieves insurance policies of a specific type.\n\n#### Request\n\n- Method: GET\n    \n- URL: `{{baseUrl}}/insurance/policies?type=AUTO`\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n##### Response Body\n\n``` json\n{\n  \"policies\": [\n    {\n      \"id\": \"\",\n      \"name\": \"\",\n      \"type\": \"\",\n      \"coverageAmount\": 0,\n      \"premiumPerMonth\": 0,\n      \"termLengthInMonths\": 0\n    }\n  ]\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userQuotePolicyId\": \"67fa088ef5539165d6c36441\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/insurance/policies?type=AUTO",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"insurance",
+										"policies"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "AUTO"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 04:36:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"policies\": [\n        {\n            \"id\": \"67f943979ffa820b9a02d38b\",\n            \"name\": \"Auto Policy\",\n            \"type\": \"AUTO\",\n            \"coverageAmount\": 50000,\n            \"premiumPerMonth\": 100,\n            \"termLengthInMonths\": 12\n        },\n        {\n            \"id\": \"67fb0f2518d41a0223849c46\",\n            \"name\": \"Auto Policy 2\",\n            \"type\": \"AUTO\",\n            \"coverageAmount\": 2000000,\n            \"premiumPerMonth\": 350,\n            \"termLengthInMonths\": 12\n        },\n        {\n            \"id\": \"67fb0f2d18d41a0223849c47\",\n            \"name\": \"Auto Policy 3\",\n            \"type\": \"AUTO\",\n            \"coverageAmount\": 4000000,\n            \"premiumPerMonth\": 450,\n            \"termLengthInMonths\": 12\n        },\n        {\n            \"id\": \"67fb0f3518d41a0223849c48\",\n            \"name\": \"Auto Policy 4\",\n            \"type\": \"AUTO\",\n            \"coverageAmount\": 5000000,\n            \"premiumPerMonth\": 650,\n            \"termLengthInMonths\": 12\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "5. Dashboard",
+			"item": [
+				{
+					"name": "5.1 Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/dashboard/summary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dashboard",
+								"summary"
+							]
+						},
+						"description": "### GET /dashboard/summary\n\nThis endpoint retrieves a summary of the dashboard.\n\n#### Request\n\nThis is a simple GET request with no request body.\n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"activePolicies\": number,\n    \"pendingApplications\": number\n}\n\n ```\n\n- `activePolicies` (number): The number of active policies.\n    \n- `pendingApplications` (number): The number of pending applications.\n    \n\n#### Example Response\n\n``` json\n{\n    \"activePolicies\": 0,\n    \"pendingApplications\": 0\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/summary",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"summary"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Apr 2025 01:26:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"activePolicies\": 2,\n    \"pendingApplications\": 19\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
