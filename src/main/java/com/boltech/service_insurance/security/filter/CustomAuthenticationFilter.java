@@ -79,7 +79,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             // Set the cookie
             Cookie cookie = new Cookie("refreshToken", refreshToken);
             cookie.setHttpOnly(true);
-            cookie.setSecure(true); // Set to true if using HTTPS
+            cookie.setSecure(false); // Set to true if using HTTPS
             cookie.setMaxAge(maxAge);
             cookie.setPath("/"); // Cookie will be available for all paths
             cookie.setDomain(url.getHost()); // Set the domain, can be your server's domain
