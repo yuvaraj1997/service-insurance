@@ -65,11 +65,11 @@ Download or import this Postman collection:
 9. Docker Compose
 10. Only simple document upload (only pdf files)
 11. Basic Data Visualization
+12. Deploy to cloud platform
 
 ## Didn't have time for
 1. Localization
 2. Real-time updates
-3. Deploy to cloud platform
 
 
 
